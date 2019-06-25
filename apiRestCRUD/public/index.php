@@ -9,6 +9,18 @@
 
 define('LARAVEL_START', microtime(true));
 
+/* Con las siguientes lineas solucionamos el problema de CORS en Laravel (Access Control Allow Origin) */
+/* Error de seguridad que marca el propio browser, pasa cuando tratas de acceder a ciertos recursos del servidor desde un cliente NO autorizado.
+De esta forma no consume el recurso NO reconocido. */
+
+header('Access-Control-Allow-Origin: *'); 
+header("Access-Control-Allow-Credentials: true");
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+header('Access-Control-Max-Age: 1000');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
+
+/* ------------------------------------------------------------------------------------------------------*/
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
